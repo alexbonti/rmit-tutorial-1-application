@@ -18,6 +18,7 @@ $(document).ready(function() {
         
         $.post( "/sentiment", {message:text}, function( data ) {
             console.log(data);
+            
             $('#textArea').val('[MESSAGE] : '+data.message +'  ------   [SENTIMENT] : '+data.sentiment.score);
         });
     })

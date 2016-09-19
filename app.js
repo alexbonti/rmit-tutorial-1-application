@@ -16,6 +16,16 @@ var cfenv = require('cfenv');
 var app = express();
 
 
+var watson = require('watson-developer-cloud');
+var alchemy_language = watson.alchemy_language({
+  api_key: 'API_KEY'
+});
+
+
+
+
+
+
 var sentiment = require('sentiment');
 var bodyParser = require('body-parser');
 // configure app to use bodyParser()
@@ -23,10 +33,32 @@ var bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.post('/sentiment', function (req, res) {
-  var message=req.body.message;  // set the bears name (comes from the request)
-  var sentimentMessage = sentiment(message);
-  res.json({ message: message,sentiment:sentimentMessage });
+  var message=req.body.message;
 
+  var parameters = {
+    extract: 'keywords',
+    sentiment: 1,
+    maxRetrieve: 1,
+    text: message
+  };
+
+  alchemy_language.combined(parameters, function (err, response) {
+    if (err)
+      console.log('error:', err);
+    else
+        var sentimentMessage=response.keywords[0].sentiment//JSON.stringify(response.keywords[0].sentiment.score);
+        //res.json({ message: message,sentiment:sentimentMessage });
+        console.log(JSON.stringify(response));
+        if(sentimentMessage!=undefined){
+          res.json({ message: message,sentiment:sentimentMessage });
+        }else{
+          sentimentMessage={
+            score:'empty'
+          }
+          res.json({ message: "empty",sentiment:sentimentMessage});
+
+        }
+  });
 })
 
 // serve the files out of ./public as our main files

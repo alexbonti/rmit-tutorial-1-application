@@ -9,7 +9,8 @@
 		"express": "4.13.x",
 		"cfenv": "1.0.x",
 		"body-parser": "*",
-		"sentiment":"*"
+		"sentiment":"*",
+		"watson-developer-cloud":"*"
 	},
 	"repository": {},
 	"engines": {
