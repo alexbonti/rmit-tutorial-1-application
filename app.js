@@ -17,8 +17,22 @@ var app = express();
 
 
 var watson = require('watson-developer-cloud');
+
+
+var api_key='';
+if (process.env.VCAP_SERVICES) {
+  var services = JSON.parse(process.env.VCAP_SERVICES);
+  for (var service_name in services) {
+    if (service_name.indexOf('alchemy_api') === 0) {
+      var service = services[service_name][0];
+      api_key=service.credentials.apikey
+    }
+  }
+}
+
+
 var alchemy_language = watson.alchemy_language({
-  api_key: '3007e30f751d1028930e0135e98fad473ccca486'
+  api_key: api_key
 });
 
 
