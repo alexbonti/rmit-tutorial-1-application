@@ -18,7 +18,7 @@ var app = express();
 
 var watson = require('watson-developer-cloud');
 var alchemy_language = watson.alchemy_language({
-  api_key: 'API_KEY'
+  api_key: '3007e30f751d1028930e0135e98fad473ccca486'
 });
 
 
