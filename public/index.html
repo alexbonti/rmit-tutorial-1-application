@@ -1,26 +1,62 @@
 <!DOCTYPE html>
 <html>
 
-  <head>
-    <title>NodeJS Starter Application</title>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="stylesheets/style.css">
-  </head>
+<head>
+  <title>NodeJS Starter Application</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="stylesheets/style.css">
 
-  <body>
-    <table>
-      <tr>
-        <td style= "width:30%;">
-          <img class = "newappIcon" src="images/newapp-icon.png">
-        </td>
-        <td>
-          <h1 id="message">My first bluemix project</h1>
-          <p class='description'></p> Thanks for creating a <span class = "blue">NodeJS Starter Application</span>.
-        </td>
-      </tr>
-    </table>
-  </body>
+  <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        crossorigin="anonymous">
+
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+        crossorigin="anonymous">
+
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+          crossorigin="anonymous"></script>
+
+
+  <script src="script/startup.js"></script>
+</head>
+
+<body>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-4">
+      <img class="newappIcon" src="images/newapp-icon.png">
+
+    </div>
+    <div class="col-xs-8">
+      <h1 id="message">My First Bluemix Project</h1>
+      <p class='description'></p> Thanks for creating a <span class="blue">NodeJS Starter Application</span>.
+
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12" style="text-align: center">
+
+      <div class="form-group">
+        <label for="textArea">Text</label>
+        <textarea class="form-control" rows="5" id="textArea"></textarea>
+      </div>
+
+
+      <button id="buttonTest" class="btn btn-danger">
+        Test
+      </button>
+    </div>
+
+  </div>
+
+</div>
+
+</body>
 
 </html>

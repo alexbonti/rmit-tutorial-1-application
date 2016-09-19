@@ -15,6 +15,20 @@ var cfenv = require('cfenv');
 // create a new express server
 var app = express();
 
+
+var sentiment = require('sentiment');
+var bodyParser = require('body-parser');
+// configure app to use bodyParser()
+// this will let us get the data from a POST
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+app.post('/sentiment', function (req, res) {
+  var message=req.body.message;  // set the bears name (comes from the request)
+  var sentimentMessage = sentiment(message);
+  res.json({ message: message,sentiment:sentimentMessage });
+
+})
+
 // serve the files out of ./public as our main files
 app.use(express.static(__dirname + '/public'));
 
